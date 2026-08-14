@@ -15,3 +15,11 @@
 
 **KURZ**:
 > Valenzelektronen sind die Elektronen die sich auf der äußersten schale eines Atoms befinden und bestimmen das Verhalten eines Element und sind ebenfalls dafür verantwortlich das Atome Bindungen eingehen.
+
+---
+## Gravimetrie
+**WIKIPEDIA**:
+- Der Begriff Gravimetrie hat je nach Fachgebiet zwei unterschiedliche Bedeutungen: In der Chemie ist es ein quantitatives Verfahren zur Massenbestimmung durch Auswaage.
+
+**KURZ**:
+> Gravimetrie in der Chemie ist ein Verfahren zur Massenbestimmung durch Auswaage.

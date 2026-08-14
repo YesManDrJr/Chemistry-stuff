@@ -6,3 +6,6 @@
 
 ## Valenzelektronen
 - https://de.wikipedia.org/wiki/Valenzelektron
+
+## Gravimetrie in der Chemie
+- https://de.wikipedia.org/wiki/Gravimetrie_(Chemie)

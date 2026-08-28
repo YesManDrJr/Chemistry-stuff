@@ -125,3 +125,8 @@ Chlor hat **3 besetzte Schalen**.
 
 > **Periode = Schalen**
 > **Hauptgruppe = Außenelektronen**
+---
+## Quellen zur Hilfe
+
+- https://studyflix.de/chemie/schalenmodell-1877
+- https://wolfenthal.com/pages/schalenmodell

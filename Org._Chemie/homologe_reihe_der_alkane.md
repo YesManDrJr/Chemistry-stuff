@@ -65,3 +65,43 @@ Beispiel:
 Und die allgemeine Formel lautet:
 
 > **Alkane: CₙH₂ₙ₊₂**
+---
+## Nach Decan:
+
+| C-Atome | Alkan          | Formel |
+| ------: | -------------- | ------ |
+|      10 | **Decan**      | C₁₀H₂₂ |
+|      11 | **Undecan**    | C₁₁H₂₄ |
+|      12 | **Dodecan**    | C₁₂H₂₆ |
+|      13 | **Tridecan**   | C₁₃H₂₈ |
+|      14 | **Tetradecan** | C₁₄H₃₀ |
+|      15 | **Pentadecan** | C₁₅H₃₂ |
+|      16 | **Hexadecan**  | C₁₆H₃₄ |
+|      17 | **Heptadecan** | C₁₇H₃₆ |
+|      18 | **Octadecan**  | C₁₈H₃₈ |
+|      19 | **Nonadecan**  | C₁₉H₄₀ |
+|      20 | **Eicosan**    | C₂₀H₄₂ |
+
+### Wichtig zum Merken
+
+Ab **11** wird es etwas anders:
+
+**10 Decan**
+**11 Undecan**
+**12 Dodecan**
+**13 Tridecan**
+**14 Tetradecan**
+**15 Pentadecan**
+**16 Hexadecan**
+**17 Heptadecan**
+**18 Octadecan**
+**19 Nonadecan**
+**20 Eicosan**
+
+Und weiterhin gilt für Alkane:
+
+**CₙH₂ₙ₊₂**
+
+Also z. B. bei Eicosan mit 20 C:
+
+**C₂₀H₄₂**.

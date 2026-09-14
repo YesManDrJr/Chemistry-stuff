@@ -1,5 +1,3 @@
-Klar — hier **kurz und testtauglich**:
-
 # Isomerie
 
 **Isomerie** bedeutet:
@@ -85,6 +83,7 @@ Heptan besitzt **9 Isomere**:
 
 > **Gleiche Summenformel + anderer Aufbau = Isomere.**
 
+<<<<<<< HEAD
 Und wichtig: **Butan → 2**, **Hexan → 5**, **Heptan → 9**.
 ---
 ## Beispiele
@@ -161,3 +160,6 @@ Beispiel:
 **Merksatz:**
 
 > **Hauptkette zuerst → Nummern anschauen → Seitenketten an die angegebenen Stellen setzen.**
+=======
+Und wichtig: **Butan → 2**, **Hexan → 5**, **Heptan → 9**
+>>>>>>> 880738d (Überarbeitung Isomerie)

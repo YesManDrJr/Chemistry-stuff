@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>YesManDrJr</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: #05070a;
+            color: #d8faff;
+            font-family: "JetBrains Mono", monospace;
+            line-height: 1.6;
+        }
+
+        /* Header */
+
+        header {
+            padding: 80px 20px 60px;
+            text-align: center;
+            border-bottom: 1px solid #12343a;
+        }
+
+        header h1 {
+            color: #00e5ff;
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 0 0 15px rgba(0, 229, 255, 0.4);
+        }
+
+        header p {
+            color: #7daeb5;
+            font-size: 1rem;
+        }
+
+        /* Navigation */
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            padding: 18px;
+            background: #080c10;
+            border-bottom: 1px solid #12343a;
+        }
+
+        nav a {
+            color: #8fdfea;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+
+        nav a:hover {
+            color: #00e5ff;
+            text-shadow: 0 0 10px #00e5ff;
+        }
+
+        /* Main */
+
+        main {
+            max-width: 1000px;
+            margin: auto;
+            padding: 50px 20px;
+        }
+
+        section {
+            margin-bottom: 50px;
+        }
+
+        section h2 {
+            color: #00e5ff;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        /* Cards */
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: #090e13;
+            border: 1px solid #12343a;
+            border-radius: 8px;
+            padding: 25px;
+            transition: 0.25s;
+        }
+
+        .card:hover {
+            border-color: #00e5ff;
+            transform: translateY(-4px);
+            box-shadow: 0 0 20px rgba(0, 229, 255, 0.12);
+        }
+
+        .card h3 {
+            color: #00e5ff;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #8da9ad;
+        }
+
+        /* Links */
+
+        a {
+            color: #00e5ff;
+        }
+
+        a:hover {
+            color: white;
+        }
+
+        /* Badge */
+
+        .badge {
+            margin-top: 20px;
+            padding: 20px;
+            background: #06090d;
+            border: 1px solid #12343a;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .badge img {
+            max-width: 100%;
+        }
+
+        /* Footer */
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            border-top: 1px solid #12343a;
+            color: #56777c;
+            font-size: 0.85rem;
+        }
+
+        /* Mobile */
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 2.2rem;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>YesManDrJr</h1>
+        <p>Linux • Chemistry • Programming</p>
+    </header>
+
+    <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#github">GitHub</a>
+    </nav>
+
+    <main>
+
+        <section id="about">
+            <h2>~/about</h2>
+
+            <div class="card">
+                <p>
+                    Welcome to my little corner of the internet.
+                    <br><br>
+                    I like Linux, programming, chemistry,
+                    open-source software and messing around with
+                    random technical projects.
+                </p>
+            </div>
+        </section>
+
+
+        <section id="projects">
+            <h2>~/projects</h2>
+
+            <div class="cards">
+
+                <div class="card">
+                    <h3>Chemistry-stuff</h3>
+
+                    <p>
+                        Chemistry notes, exercises and examples
+                        for school.
+                    </p>
+
+                    <br>
+
+                    <a href="https://github.com/YesManDrJr/Chemistry-stuff">
+                        View repository →
+                    </a>
+                </div>
+
+
+                <div class="card">
+                    <h3>Linux</h3>
+
+                    <p>
+                        Ubuntu customization, terminal tools,
+                        scripting and Linux experimentation.
+                    </p>
+                </div>
+
+
+                <div class="card">
+                    <h3>Programming</h3>
+
+                    <p>
+                        Python, JavaScript, Git and various
+                        experimental projects.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+
+        <section id="github">
+            <h2>~/github</h2>
+
+            <div class="card">
+
+                <p>
+                    Check out my GitHub profile:
+                </p>
+
+                <br>
+
+                <a href="https://github.com/YesManDrJr">
+                    github.com/YesManDrJr →
+                </a>
+
+            </div>
+
+
+            <div class="badge">
+
+                <p>GitHub Commits</p>
+
+                <br>
+
+                <a href="https://ghcommits.com/u/YesManDrJr">
+                    <img
+                        src="https://ghcommits.com/api/badge/YesManDrJr.svg"
+                        alt="GitHub Commits Badge"
+                    >
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+        <p>© 2026 YesManDrJr</p>
+    </footer>
+
+</body>
+</html>

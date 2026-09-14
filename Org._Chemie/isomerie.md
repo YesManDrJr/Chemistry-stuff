@@ -86,3 +86,78 @@ Heptan besitzt **9 Isomere**:
 > **Gleiche Summenformel + anderer Aufbau = Isomere.**
 
 Und wichtig: **Butan → 2**, **Hexan → 5**, **Heptan → 9**.
+---
+## Beispiele
+
+### 1. 2,4-Dimethyl-4-ethylhexan
+
+* **Hexan** → längste Hauptkette: 6 C
+* **2,4-Dimethyl** → je eine CH₃-Gruppe an C2 und C4
+* **4-Ethyl** → eine C₂H₅-Gruppe an C4
+
+Vereinfacht:
+
+```text
+        CH3
+         |
+CH3–CH–CH2–C–CH2–CH3
+             |
+           CH2–CH3
+```
+
+---
+
+### 2. 3,3,5-Trimethyloctan
+
+* **Octan** → Hauptkette: 8 C
+* **3,3,5-Trimethyl** → drei CH₃-Gruppen
+* zwei davon an C3
+* eine an C5
+
+```text
+        CH3
+         |
+CH3–CH2–C–CH2–CH–CH2–CH2–CH3
+         |      |
+        CH3    CH3
+```
+
+---
+
+### 3. 2,2,4-Trimethyl-3-ethylhexan
+
+* **Hexan** → Hauptkette: 6 C
+* **2,2,4-Trimethyl** → drei CH₃-Gruppen
+* **3-Ethyl** → eine C₂H₅-Gruppe an C3
+
+```text
+       CH3
+        |
+CH3–C–CH–CH–CH2–CH3
+    |  |   |
+   CH3 CH2–CH3
+        |
+       CH3
+```
+
+### So liest du solche Namen immer:
+
+**Zahl + Gruppe → Position der Gruppe**
+
+Beispiel:
+
+**2,4-Dimethyl**
+
+→ CH₃ an **C2** und **C4**
+
+**4-Ethyl**
+
+→ C₂H₅ an **C4**
+
+**3,3,5-Trimethyl**
+
+→ CH₃ an **C3, C3 und C5**
+
+**Merksatz:**
+
+> **Hauptkette zuerst → Nummern anschauen → Seitenketten an die angegebenen Stellen setzen.**

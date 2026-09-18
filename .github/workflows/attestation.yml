@@ -1,0 +1,37 @@
+name: Create Attestation
+
+on:
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
+  attestations: write
+  artifact-metadata: write
+
+jobs:
+  attest:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Build artifact
+        shell: bash
+        run: |
+          echo 'Replace this with your build command'
+
+      - name: Check artifact
+        shell: bash
+        run: |
+          test -f "dist/artifact"
+          sha256sum "dist/artifact"
+
+      - name: Create custom attestation
+        uses: actions/attest@v4
+        with:
+          subject-path: "dist/artifact"
+          predicate-type: "https://yesmandrjr.dev/attestation/v1"
+          predicate-path: ".attestation/predicate.json"
+          show-summary: true

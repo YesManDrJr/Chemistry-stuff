@@ -1,281 +1,718 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>YesManDrJr</title>
+```
+<title>YesManDrJr</title>
 
-    <style>
-        * {
-            box-sizing: border-box;
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        background: #d6d0bd;
+        color: #292b25;
+        font-family: "Courier New", Courier, monospace;
+        line-height: 1.6;
+    }
+
+    /* =========================
+       MAIN WINDOW
+    ========================= */
+
+    .page {
+        max-width: 1050px;
+        min-height: 650px;
+        margin: 30px auto;
+        background: #eee9d8;
+        border: 1px solid #77715f;
+
+        box-shadow:
+            4px 4px 0 #aaa38f,
+            8px 8px 0 #bdb6a2;
+    }
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    header {
+        padding: 40px 30px 30px;
+        background: #dcd6c3;
+        border-bottom: 3px double #77715f;
+    }
+
+    header h1 {
+        color: #263d35;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 2.8rem;
+        letter-spacing: 1px;
+        margin-bottom: 5px;
+    }
+
+    header h1::before {
+        content: "CHEM // ";
+        color: #6b6a58;
+        font-family: "Courier New", monospace;
+        font-size: 0.8rem;
+        letter-spacing: 0;
+    }
+
+    header p {
+        color: #686556;
+        font-size: 0.95rem;
+    }
+
+    .system-status {
+        margin-top: 18px;
+        padding: 8px 12px;
+
+        background: #e2ddcc;
+        border: 1px solid #85806e;
+
+        color: #555448;
+        font-size: 0.75rem;
+    }
+
+    /* =========================
+       NAVIGATION
+    ========================= */
+
+    nav {
+        display: flex;
+        background: #c8c2af;
+        border-bottom: 1px solid #77715f;
+    }
+
+    nav button {
+        appearance: none;
+
+        padding: 10px 22px;
+
+        background: #c8c2af;
+        color: #263d35;
+
+        border: none;
+        border-right: 1px solid #999281;
+
+        font-family: "Courier New", monospace;
+        font-size: 0.9rem;
+        font-weight: bold;
+
+        cursor: pointer;
+    }
+
+    nav button:hover {
+        background: #ddd7c5;
+    }
+
+    nav button.active {
+        background: #eee9d8;
+        color: #172f27;
+
+        box-shadow:
+            inset 0 3px 0 #61766a;
+    }
+
+    /* =========================
+       CONTENT
+    ========================= */
+
+    main {
+        padding: 35px;
+    }
+
+    /* Every page starts hidden */
+
+    .panel {
+        display: none;
+
+        animation: fadeIn 0.15s ease-in;
+    }
+
+    /* Only selected page is visible */
+
+    .panel.active {
+        display: block;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+    section h2 {
+        display: inline-block;
+
+        color: #263d35;
+
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 1.45rem;
+
+        margin-bottom: 18px;
+        padding-bottom: 4px;
+
+        border-bottom: 2px solid #77715f;
+    }
+
+    section h2::before {
+        content: "■ ";
+        color: #827c66;
+        font-family: Arial, sans-serif;
+    }
+
+    /* =========================
+       CARDS
+    ========================= */
+
+    .card {
+        background: #f1eddf;
+
+        border: 1px solid #85806e;
+        border-radius: 2px;
+
+        padding: 22px;
+
+        box-shadow: 2px 2px 0 #b4ae9b;
+
+        margin-bottom: 18px;
+    }
+
+    .card:hover {
+        background: #f5f1e4;
+        border-color: #4d6559;
+
+        box-shadow: 3px 3px 0 #aaa38f;
+    }
+
+    .card h3 {
+        color: #304f43;
+
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 1.15rem;
+
+        margin-bottom: 10px;
+    }
+
+    .card h3::before {
+        content: "[+] ";
+
+        color: #77715f;
+
+        font-family: "Courier New", monospace;
+        font-size: 0.9rem;
+    }
+
+    .card p {
+        color: #555448;
+    }
+
+    /* =========================
+       PROJECT GRID
+    ========================= */
+
+    .cards {
+        display: grid;
+
+        grid-template-columns:
+            repeat(auto-fit, minmax(250px, 1fr));
+
+        gap: 18px;
+    }
+
+    /* =========================
+       LINKS
+    ========================= */
+
+    a {
+        color: #315b4c;
+    }
+
+    a:hover {
+        color: #172f27;
+    }
+
+    /* =========================
+       CHEMISTRY BOX
+    ========================= */
+
+    .formula {
+        margin-top: 18px;
+        padding: 10px 12px;
+
+        background: #e2ddcc;
+
+        border-left: 4px solid #61766a;
+
+        color: #4c514a;
+        font-size: 0.8rem;
+    }
+
+    /* =========================
+       GITHUB BADGE
+    ========================= */
+
+    .badge {
+        margin-top: 20px;
+
+        padding: 20px;
+
+        background: #ded8c6;
+
+        border: 1px solid #85806e;
+
+        text-align: center;
+    }
+
+    .badge p {
+        color: #4f5047;
+        font-weight: bold;
+    }
+
+    .badge img {
+        max-width: 100%;
+        filter: sepia(15%);
+    }
+
+    /* =========================
+       STATUS TABLE
+    ========================= */
+
+    .info-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 15px;
+    }
+
+    .info-table td {
+        padding: 7px 10px;
+        border: 1px solid #aaa390;
+    }
+
+    .info-table td:first-child {
+        width: 35%;
+
+        background: #ded8c6;
+        color: #4d5149;
+
+        font-weight: bold;
+    }
+
+    .info-table td:last-child {
+        background: #f1eddf;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+        padding: 22px 30px;
+
+        background: #c8c2af;
+
+        border-top: 3px double #77715f;
+
+        color: #656254;
+
+        font-size: 0.8rem;
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 600px) {
+
+        .page {
             margin: 0;
-            padding: 0;
-        }
 
-        body {
-            background: #05070a;
-            color: #d8faff;
-            font-family: "JetBrains Mono", monospace;
-            line-height: 1.6;
-        }
+            border-left: 0;
+            border-right: 0;
 
-        /* Header */
+            box-shadow: none;
+        }
 
         header {
-            padding: 80px 20px 60px;
-            text-align: center;
-            border-bottom: 1px solid #12343a;
+            padding: 30px 20px;
         }
 
         header h1 {
-            color: #00e5ff;
-            font-size: 3rem;
-            margin-bottom: 10px;
-            text-shadow: 0 0 15px rgba(0, 229, 255, 0.4);
+            font-size: 2.1rem;
         }
-
-        header p {
-            color: #7daeb5;
-            font-size: 1rem;
-        }
-
-        /* Navigation */
 
         nav {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            padding: 18px;
-            background: #080c10;
-            border-bottom: 1px solid #12343a;
+            flex-wrap: wrap;
         }
 
-        nav a {
-            color: #8fdfea;
-            text-decoration: none;
-            transition: 0.2s;
+        nav button {
+            flex: 1 1 33%;
+            padding: 9px;
         }
-
-        nav a:hover {
-            color: #00e5ff;
-            text-shadow: 0 0 10px #00e5ff;
-        }
-
-        /* Main */
 
         main {
-            max-width: 1000px;
-            margin: auto;
-            padding: 50px 20px;
+            padding: 25px 20px;
         }
+    }
+</style>
+```
 
-        section {
-            margin-bottom: 50px;
-        }
-
-        section h2 {
-            color: #00e5ff;
-            margin-bottom: 20px;
-            font-size: 1.5rem;
-        }
-
-        /* Cards */
-
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
-        .card {
-            background: #090e13;
-            border: 1px solid #12343a;
-            border-radius: 8px;
-            padding: 25px;
-            transition: 0.25s;
-        }
-
-        .card:hover {
-            border-color: #00e5ff;
-            transform: translateY(-4px);
-            box-shadow: 0 0 20px rgba(0, 229, 255, 0.12);
-        }
-
-        .card h3 {
-            color: #00e5ff;
-            margin-bottom: 10px;
-        }
-
-        .card p {
-            color: #8da9ad;
-        }
-
-        /* Links */
-
-        a {
-            color: #00e5ff;
-        }
-
-        a:hover {
-            color: white;
-        }
-
-        /* Badge */
-
-        .badge {
-            margin-top: 20px;
-            padding: 20px;
-            background: #06090d;
-            border: 1px solid #12343a;
-            border-radius: 8px;
-            text-align: center;
-        }
-
-        .badge img {
-            max-width: 100%;
-        }
-
-        /* Footer */
-
-        footer {
-            text-align: center;
-            padding: 30px;
-            border-top: 1px solid #12343a;
-            color: #56777c;
-            font-size: 0.85rem;
-        }
-
-        /* Mobile */
-
-        @media (max-width: 600px) {
-            header h1 {
-                font-size: 2.2rem;
-            }
-
-            nav {
-                flex-wrap: wrap;
-                gap: 15px;
-            }
-        }
-    </style>
 </head>
 
 <body>
 
-    <header>
-        <h1>YesManDrJr</h1>
-        <p>Linux • Chemistry • Programming</p>
-    </header>
+<div class="page">
 
-    <nav>
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#github">GitHub</a>
-    </nav>
+```
+<!-- =========================
+     HEADER
+========================== -->
 
-    <main>
+<header>
 
-        <section id="about">
-            <h2>~/about</h2>
+    <h1>YesManDrJr</h1>
+
+    <p>
+        Linux • Chemistry • Programming
+    </p>
+
+    <div class="system-status">
+        SYSTEM STATUS: ONLINE
+        &nbsp; | &nbsp;
+        PLATFORM: GNU/Linux
+        &nbsp; | &nbsp;
+        SUBJECT: CHEMISTRY
+    </div>
+
+</header>
+
+
+<!-- =========================
+     NAVIGATION
+========================== -->
+
+<nav>
+
+    <button
+        class="nav-button active"
+        onclick="showPanel('about', this)">
+        About
+    </button>
+
+    <button
+        class="nav-button"
+        onclick="showPanel('projects', this)">
+        Projects
+    </button>
+
+    <button
+        class="nav-button"
+        onclick="showPanel('github', this)">
+        GitHub
+    </button>
+
+</nav>
+
+
+<!-- =========================
+     CONTENT
+========================== -->
+
+<main>
+
+
+    <!-- =====================
+         ABOUT
+    ====================== -->
+
+    <section
+        id="about"
+        class="panel active">
+
+        <h2>~/about</h2>
+
+        <div class="card">
+
+            <p>
+                Welcome to my little corner of the internet.
+            </p>
+
+            <br>
+
+            <p>
+                I like Linux, programming, chemistry,
+                open-source software and messing around with
+                random technical projects.
+            </p>
+
+            <div class="formula">
+
+                H<sub>2</sub>O + CO<sub>2</sub>
+                →
+                H<sub>2</sub>CO<sub>3</sub>
+
+                <br>
+
+                "Everything is chemistry eventually."
+
+            </div>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>System Information</h3>
+
+            <table class="info-table">
+
+                <tr>
+                    <td>Operating System</td>
+                    <td>GNU/Linux</td>
+                </tr>
+
+                <tr>
+                    <td>Interests</td>
+                    <td>Linux / Chemistry / Programming</td>
+                </tr>
+
+                <tr>
+                    <td>Website</td>
+                    <td>YesManDrJr</td>
+                </tr>
+
+                <tr>
+                    <td>Status</td>
+                    <td>Working on something...</td>
+                </tr>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================
+         PROJECTS
+    ====================== -->
+
+    <section
+        id="projects"
+        class="panel">
+
+        <h2>~/projects</h2>
+
+        <div class="cards">
+
 
             <div class="card">
+
+                <h3>Chemistry-stuff</h3>
+
                 <p>
-                    Welcome to my little corner of the internet.
-                    <br><br>
-                    I like Linux, programming, chemistry,
-                    open-source software and messing around with
-                    random technical projects.
+                    Chemistry notes, exercises and examples
+                    for school.
                 </p>
+
+                <br>
+
+                <a
+                    href="https://github.com/YesManDrJr/Chemistry-stuff"
+                    target="_blank">
+
+                    View repository →
+
+                </a>
+
             </div>
-        </section>
 
 
-        <section id="projects">
-            <h2>~/projects</h2>
+            <div class="card">
 
-            <div class="cards">
+                <h3>Linux</h3>
 
-                <div class="card">
-                    <h3>Chemistry-stuff</h3>
+                <p>
+                    Ubuntu customization, terminal tools,
+                    scripting and Linux experimentation.
+                </p>
 
-                    <p>
-                        Chemistry notes, exercises and examples
-                        for school.
-                    </p>
+                <br>
 
+                <div class="formula">
+
+                    OS = GNU/Linux
                     <br>
+                    SHELL = fish
 
-                    <a href="https://github.com/YesManDrJr/Chemistry-stuff">
-                        View repository →
-                    </a>
-                </div>
-
-
-                <div class="card">
-                    <h3>Linux</h3>
-
-                    <p>
-                        Ubuntu customization, terminal tools,
-                        scripting and Linux experimentation.
-                    </p>
-                </div>
-
-
-                <div class="card">
-                    <h3>Programming</h3>
-
-                    <p>
-                        Python, JavaScript, Git and various
-                        experimental projects.
-                    </p>
                 </div>
 
             </div>
-        </section>
 
-
-        <section id="github">
-            <h2>~/github</h2>
 
             <div class="card">
 
+                <h3>Programming</h3>
+
                 <p>
-                    Check out my GitHub profile:
+                    Python, JavaScript, Git and various
+                    experimental projects.
                 </p>
 
                 <br>
 
-                <a href="https://github.com/YesManDrJr">
-                    github.com/YesManDrJr →
-                </a>
+                <div class="formula">
+
+                    CODE + CURIOSITY → PROJECT
+
+                </div>
 
             </div>
 
 
-            <div class="badge">
+        </div>
 
-                <p>GitHub Commits</p>
-
-                <br>
-
-                <a href="https://ghcommits.com/u/YesManDrJr">
-                    <img
-                        src="https://ghcommits.com/api/badge/YesManDrJr.svg"
-                        alt="GitHub Commits Badge"
-                    >
-                </a>
-
-            </div>
-
-        </section>
-
-    </main>
+    </section>
 
 
-    <footer>
-        <p>© 2026 YesManDrJr</p>
-    </footer>
+    <!-- =====================
+         GITHUB
+    ====================== -->
+
+    <section
+        id="github"
+        class="panel">
+
+        <h2>~/github</h2>
+
+
+        <div class="card">
+
+            <h3>GitHub Profile</h3>
+
+            <p>
+                Check out my GitHub profile:
+            </p>
+
+            <br>
+
+            <a
+                href="https://github.com/YesManDrJr"
+                target="_blank">
+
+                github.com/YesManDrJr →
+
+            </a>
+
+        </div>
+
+
+        <div class="badge">
+
+            <p>
+                GITHUB COMMITS
+            </p>
+
+            <br>
+
+            <a
+                href="https://ghcommits.com/u/YesManDrJr"
+                target="_blank">
+
+                <img
+                    src="https://ghcommits.com/api/badge/YesManDrJr.svg"
+                    alt="GitHub Commits Badge">
+
+            </a>
+
+        </div>
+
+
+    </section>
+
+</main>
+
+
+<!-- =========================
+     FOOTER
+========================== -->
+
+<footer>
+
+    <p>
+        © 2026 YesManDrJr
+        &nbsp; | &nbsp;
+        Personal homepage
+        &nbsp; | &nbsp;
+        Built with HTML & CSS
+    </p>
+
+</footer>
+```
+
+</div>
+
+<!-- =========================
+     PAGE SWITCHING
+========================== -->
+
+<script>
+
+    function showPanel(panelId, button) {
+
+        /*
+         * Hide every panel
+         */
+
+        const panels = document.querySelectorAll(".panel");
+
+        panels.forEach(panel => {
+            panel.classList.remove("active");
+        });
+
+
+        /*
+         * Remove active state
+         * from every navigation button
+         */
+
+        const buttons =
+            document.querySelectorAll(".nav-button");
+
+        buttons.forEach(btn => {
+            btn.classList.remove("active");
+        });
+
+
+        /*
+         * Show selected panel
+         */
+
+        document
+            .getElementById(panelId)
+            .classList.add("active");
+
+
+        /*
+         * Highlight selected button
+         */
+
+        button.classList.add("active");
+
+    }
+
+</script>
 
 </body>
 </html>

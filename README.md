@@ -7,3 +7,5 @@ This repository is public so classmates can use it to review material, compare s
 Important: These are personal notes and may contain mistakes. Always compare with the official course material.
 
 > Its also important to note that some of the provided material might NOT contain EVERYTHING, just a overall conclusion of what I was able to catch up.
+
+**CONTACT FOR QUESTIONS OR SMTH: 1xyz_dev@protonmail.com**

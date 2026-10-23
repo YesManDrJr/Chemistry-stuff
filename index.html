@@ -100,14 +100,7 @@
     <section id="mining" class="panel">
       <h2>~/mining</h2>
       <div class="cards">
-        <div class="card"><h3>Monero / XMR</h3><p>Mining pool account statistics from HashVault.</p><div class="formula">POOL = HASHVAULT<br>ALGORITHM = RandomX<br>COIN = XMR</div><br><a href="https://hashvault.pro/" target="_blank" rel="noopener noreferrer">Open HashVault →</a></div>
-        <div class="card"><h3>Reported Hashrate</h3><div class="formula metric" id="mining-hashrate">Loading…</div><p class="subtle">Hashrate value reported by the API.</p></div>
-        <div class="card"><h3>Workers</h3><div class="formula metric" id="mining-workers">Loading…</div><p class="subtle">Worker count/status, if included in the response.</p></div>
-        <div class="card"><h3>Accepted Shares</h3><div class="formula metric" id="mining-shares">Loading…</div><p class="subtle">Share count, if included in the response.</p></div>
-        <div class="card"><h3>Balance</h3><div class="formula metric" id="mining-balance">Loading…</div><p class="subtle">Displayed as returned; units depend on the API field.</p></div>
-        <div class="card"><h3>API Connection</h3><div class="badge" id="mining-status" role="status">CONNECTING</div><p class="subtle" id="mining-updated">Waiting for API response…</p><button class="button" id="mining-refresh" type="button">Refresh statistics</button></div>
-      </div>
-      <details><summary>Debug: raw API response</summary><pre id="mining-raw">No response received yet.</pre></details>
+        
     </section>
   </main>
 
@@ -190,25 +183,37 @@
       $('mining-raw').textContent = JSON.stringify(data, null, 2);
       if (!response.ok) throw new Error(`HTTP ${response.status}: ${bodyText.slice(0, 180)}`);
 
-// Hashrate: use the collective pool statistics
-const hashrate = findField(data, [
-    'hashrate', 'hashRate', 'currentHashrate', 'currentHashRate',
-    'totalHashrate', 'totalHashRate', 'hashrate1h', 'hashrate24h'
+const hashrate = findField(data.collective, [
+    'hashRate', 'hashrate', 'currentHashRate'
 ]);
 
-// Workers: HashVault returns an array of worker objects
 const workers = Array.isArray(data.collectiveWorkers)
     ? data.collectiveWorkers
     : [];
 
-// Accepted shares: use collective pool statistics
 const shares = findField(data.collective, [
-    'acceptedShares', 'sharesAccepted', 'validShares', 'shares', 'accepted'
+    'validShares', 'acceptedShares', 'sharesAccepted'
 ]);
 
-// Balance: confirmed balance is reported in atomic XMR units
 const balance = data.revenue?.confirmedBalance;
 const balanceXMR = balance != null ? balance / 1e12 : null;
+
+// Update the HTML cards
+document.getElementById('mining-hashrate').textContent =
+    hashrate != null ? `${hashrate} H/s` : 'Not provided';
+
+document.getElementById('mining-workers').textContent =
+    workers.length > 0
+        ? `${workers.length} (${workers.filter(w => !w.offline).length} online)`
+        : '0';
+
+document.getElementById('mining-shares').textContent =
+    shares != null ? shares.toLocaleString() : 'Not provided';
+
+document.getElementById('mining-balance').textContent =
+    balanceXMR != null
+        ? `${balanceXMR.toFixed(12)} XMR`
+        : 'Not provided';
 
       setText('mining-hashrate', formatHashrate(hashrate));
       setText('mining-workers', formatValue(workers));

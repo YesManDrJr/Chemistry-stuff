@@ -1,718 +1,224 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-```
-<title>YesManDrJr</title>
-
-<style>
-    * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-    }
-
-    body {
-        background: #d6d0bd;
-        color: #292b25;
-        font-family: "Courier New", Courier, monospace;
-        line-height: 1.6;
-    }
-
-    /* =========================
-       MAIN WINDOW
-    ========================= */
-
-    .page {
-        max-width: 1050px;
-        min-height: 650px;
-        margin: 30px auto;
-        background: #eee9d8;
-        border: 1px solid #77715f;
-
-        box-shadow:
-            4px 4px 0 #aaa38f,
-            8px 8px 0 #bdb6a2;
-    }
-
-    /* =========================
-       HEADER
-    ========================= */
-
-    header {
-        padding: 40px 30px 30px;
-        background: #dcd6c3;
-        border-bottom: 3px double #77715f;
-    }
-
-    header h1 {
-        color: #263d35;
-        font-family: Georgia, "Times New Roman", serif;
-        font-size: 2.8rem;
-        letter-spacing: 1px;
-        margin-bottom: 5px;
-    }
-
-    header h1::before {
-        content: "CHEM // ";
-        color: #6b6a58;
-        font-family: "Courier New", monospace;
-        font-size: 0.8rem;
-        letter-spacing: 0;
-    }
-
-    header p {
-        color: #686556;
-        font-size: 0.95rem;
-    }
-
-    .system-status {
-        margin-top: 18px;
-        padding: 8px 12px;
-
-        background: #e2ddcc;
-        border: 1px solid #85806e;
-
-        color: #555448;
-        font-size: 0.75rem;
-    }
-
-    /* =========================
-       NAVIGATION
-    ========================= */
-
-    nav {
-        display: flex;
-        background: #c8c2af;
-        border-bottom: 1px solid #77715f;
-    }
-
-    nav button {
-        appearance: none;
-
-        padding: 10px 22px;
-
-        background: #c8c2af;
-        color: #263d35;
-
-        border: none;
-        border-right: 1px solid #999281;
-
-        font-family: "Courier New", monospace;
-        font-size: 0.9rem;
-        font-weight: bold;
-
-        cursor: pointer;
-    }
-
-    nav button:hover {
-        background: #ddd7c5;
-    }
-
-    nav button.active {
-        background: #eee9d8;
-        color: #172f27;
-
-        box-shadow:
-            inset 0 3px 0 #61766a;
-    }
-
-    /* =========================
-       CONTENT
-    ========================= */
-
-    main {
-        padding: 35px;
-    }
-
-    /* Every page starts hidden */
-
-    .panel {
-        display: none;
-
-        animation: fadeIn 0.15s ease-in;
-    }
-
-    /* Only selected page is visible */
-
-    .panel.active {
-        display: block;
-    }
-
-    @keyframes fadeIn {
-        from {
-            opacity: 0;
-        }
-
-        to {
-            opacity: 1;
-        }
-    }
-
-    section h2 {
-        display: inline-block;
-
-        color: #263d35;
-
-        font-family: Georgia, "Times New Roman", serif;
-        font-size: 1.45rem;
-
-        margin-bottom: 18px;
-        padding-bottom: 4px;
-
-        border-bottom: 2px solid #77715f;
-    }
-
-    section h2::before {
-        content: "■ ";
-        color: #827c66;
-        font-family: Arial, sans-serif;
-    }
-
-    /* =========================
-       CARDS
-    ========================= */
-
-    .card {
-        background: #f1eddf;
-
-        border: 1px solid #85806e;
-        border-radius: 2px;
-
-        padding: 22px;
-
-        box-shadow: 2px 2px 0 #b4ae9b;
-
-        margin-bottom: 18px;
-    }
-
-    .card:hover {
-        background: #f5f1e4;
-        border-color: #4d6559;
-
-        box-shadow: 3px 3px 0 #aaa38f;
-    }
-
-    .card h3 {
-        color: #304f43;
-
-        font-family: Georgia, "Times New Roman", serif;
-        font-size: 1.15rem;
-
-        margin-bottom: 10px;
-    }
-
-    .card h3::before {
-        content: "[+] ";
-
-        color: #77715f;
-
-        font-family: "Courier New", monospace;
-        font-size: 0.9rem;
-    }
-
-    .card p {
-        color: #555448;
-    }
-
-    /* =========================
-       PROJECT GRID
-    ========================= */
-
-    .cards {
-        display: grid;
-
-        grid-template-columns:
-            repeat(auto-fit, minmax(250px, 1fr));
-
-        gap: 18px;
-    }
-
-    /* =========================
-       LINKS
-    ========================= */
-
-    a {
-        color: #315b4c;
-    }
-
-    a:hover {
-        color: #172f27;
-    }
-
-    /* =========================
-       CHEMISTRY BOX
-    ========================= */
-
-    .formula {
-        margin-top: 18px;
-        padding: 10px 12px;
-
-        background: #e2ddcc;
-
-        border-left: 4px solid #61766a;
-
-        color: #4c514a;
-        font-size: 0.8rem;
-    }
-
-    /* =========================
-       GITHUB BADGE
-    ========================= */
-
-    .badge {
-        margin-top: 20px;
-
-        padding: 20px;
-
-        background: #ded8c6;
-
-        border: 1px solid #85806e;
-
-        text-align: center;
-    }
-
-    .badge p {
-        color: #4f5047;
-        font-weight: bold;
-    }
-
-    .badge img {
-        max-width: 100%;
-        filter: sepia(15%);
-    }
-
-    /* =========================
-       STATUS TABLE
-    ========================= */
-
-    .info-table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 15px;
-    }
-
-    .info-table td {
-        padding: 7px 10px;
-        border: 1px solid #aaa390;
-    }
-
-    .info-table td:first-child {
-        width: 35%;
-
-        background: #ded8c6;
-        color: #4d5149;
-
-        font-weight: bold;
-    }
-
-    .info-table td:last-child {
-        background: #f1eddf;
-    }
-
-    /* =========================
-       FOOTER
-    ========================= */
-
-    footer {
-        padding: 22px 30px;
-
-        background: #c8c2af;
-
-        border-top: 3px double #77715f;
-
-        color: #656254;
-
-        font-size: 0.8rem;
-    }
-
-    /* =========================
-       MOBILE
-    ========================= */
-
-    @media (max-width: 600px) {
-
-        .page {
-            margin: 0;
-
-            border-left: 0;
-            border-right: 0;
-
-            box-shadow: none;
-        }
-
-        header {
-            padding: 30px 20px;
-        }
-
-        header h1 {
-            font-size: 2.1rem;
-        }
-
-        nav {
-            flex-wrap: wrap;
-        }
-
-        nav button {
-            flex: 1 1 33%;
-            padding: 9px;
-        }
-
-        main {
-            padding: 25px 20px;
-        }
-    }
-</style>
-```
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YesManDrJr</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #d6d0bd; color: #292b25; font-family: "Courier New", Courier, monospace; line-height: 1.6; }
+    .page { max-width: 1050px; min-height: 650px; margin: 30px auto; background: #eee9d8; border: 1px solid #77715f; box-shadow: 4px 4px 0 #aaa38f, 8px 8px 0 #bdb6a2; }
+    header { padding: 40px 30px 30px; background: #dcd6c3; border-bottom: 3px double #77715f; }
+    header h1 { color: #263d35; font-family: Georgia, "Times New Roman", serif; font-size: 2.8rem; letter-spacing: 1px; margin-bottom: 5px; }
+    header h1::before { content: "CHEM // "; color: #6b6a58; font-family: "Courier New", monospace; font-size: .8rem; letter-spacing: 0; }
+    header p { color: #686556; font-size: .95rem; }
+    .system-status { margin-top: 18px; padding: 8px 12px; background: #e2ddcc; border: 1px solid #85806e; color: #555448; font-size: .75rem; }
+    nav { display: flex; flex-wrap: wrap; background: #c8c2af; border-bottom: 1px solid #77715f; }
+    nav button { appearance: none; padding: 10px 22px; background: #c8c2af; color: #263d35; border: none; border-right: 1px solid #999281; font: bold .9rem "Courier New", monospace; cursor: pointer; }
+    nav button:hover { background: #ddd7c5; }
+    nav button.active { background: #eee9d8; color: #172f27; box-shadow: inset 0 3px 0 #61766a; }
+    main { padding: 35px; }
+    .panel { display: none; animation: fadeIn .15s ease-in; }
+    .panel.active { display: block; }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    section h2 { display: inline-block; color: #263d35; font-family: Georgia, "Times New Roman", serif; font-size: 1.45rem; margin-bottom: 18px; padding-bottom: 4px; border-bottom: 2px solid #77715f; }
+    section h2::before { content: "■ "; color: #827c66; font-family: Arial, sans-serif; }
+    .card { background: #f1eddf; border: 1px solid #85806e; border-radius: 2px; padding: 22px; box-shadow: 2px 2px 0 #b4ae9b; margin-bottom: 18px; min-width: 0; }
+    .card:hover { background: #f5f1e4; border-color: #4d6559; box-shadow: 3px 3px 0 #aaa38f; }
+    .card h3 { color: #304f43; font-family: Georgia, "Times New Roman", serif; font-size: 1.15rem; margin-bottom: 10px; }
+    .card h3::before { content: "[+] "; color: #77715f; font: .9rem "Courier New", monospace; }
+    .card p { color: #555448; overflow-wrap: anywhere; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 18px; }
+    a { color: #315b4c; } a:hover { color: #172f27; }
+    .formula { margin-top: 18px; padding: 10px 12px; background: #e2ddcc; border-left: 4px solid #61766a; color: #4c514a; font-size: .85rem; overflow-wrap: anywhere; }
+    .badge { margin-top: 15px; padding: 12px; background: #ded8c6; border: 1px solid #85806e; text-align: center; font-weight: bold; overflow-wrap: anywhere; }
+    .metric { font-size: 1.35rem; font-weight: bold; }
+    .subtle { margin-top: 8px; font-size: .78rem; }
+    .button { margin-top: 12px; padding: 9px 12px; border: 1px solid #77715f; background: #dcd6c3; color: #263d35; font: bold .85rem "Courier New", monospace; cursor: pointer; }
+    .button:hover { background: #c8c2af; }
+    .error { color: #8b3028; }
+    details { margin-top: 16px; border: 1px solid #aaa390; padding: 10px; background: #e8e2d1; }
+    summary { cursor: pointer; color: #304f43; font-weight: bold; }
+    pre { margin-top: 10px; white-space: pre-wrap; overflow-wrap: anywhere; max-height: 360px; overflow: auto; font-size: .75rem; }
+    .info-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+    .info-table td { padding: 7px 10px; border: 1px solid #aaa390; }
+    .info-table td:first-child { width: 35%; background: #ded8c6; color: #4d5149; font-weight: bold; }
+    .info-table td:last-child { background: #f1eddf; }
+    footer { padding: 22px 30px; background: #c8c2af; border-top: 3px double #77715f; color: #656254; font-size: .8rem; }
+    @media (max-width: 600px) { .page { margin: 0; border-left: 0; border-right: 0; box-shadow: none; } header { padding: 30px 20px; } header h1 { font-size: 2.1rem; } nav button { flex: 1 1 33%; padding: 9px; } main { padding: 25px 20px; } }
+  </style>
 </head>
-
 <body>
-
 <div class="page">
-
-```
-<!-- =========================
-     HEADER
-========================== -->
-
-<header>
-
+  <header>
     <h1>YesManDrJr</h1>
+    <p>Linux • Chemistry • Programming</p>
+    <div class="system-status">SYSTEM STATUS: ONLINE &nbsp; | &nbsp; PLATFORM: GNU/Linux &nbsp; | &nbsp; SUBJECT: CHEMISTRY</div>
+  </header>
 
-    <p>
-        Linux • Chemistry • Programming
-    </p>
+  <nav aria-label="Main navigation">
+    <button class="nav-button active" type="button" data-panel="about">About</button>
+    <button class="nav-button" type="button" data-panel="projects">Projects</button>
+    <button class="nav-button" type="button" data-panel="github">GitHub</button>
+    <button class="nav-button" type="button" data-panel="mining">Mining</button>
+  </nav>
 
-    <div class="system-status">
-        SYSTEM STATUS: ONLINE
-        &nbsp; | &nbsp;
-        PLATFORM: GNU/Linux
-        &nbsp; | &nbsp;
-        SUBJECT: CHEMISTRY
-    </div>
-
-</header>
-
-
-<!-- =========================
-     NAVIGATION
-========================== -->
-
-<nav>
-
-    <button
-        class="nav-button active"
-        onclick="showPanel('about', this)">
-        About
-    </button>
-
-    <button
-        class="nav-button"
-        onclick="showPanel('projects', this)">
-        Projects
-    </button>
-
-    <button
-        class="nav-button"
-        onclick="showPanel('github', this)">
-        GitHub
-    </button>
-
-</nav>
-
-
-<!-- =========================
-     CONTENT
-========================== -->
-
-<main>
-
-
-    <!-- =====================
-         ABOUT
-    ====================== -->
-
-    <section
-        id="about"
-        class="panel active">
-
-        <h2>~/about</h2>
-
-        <div class="card">
-
-            <p>
-                Welcome to my little corner of the internet.
-            </p>
-
-            <br>
-
-            <p>
-                I like Linux, programming, chemistry,
-                open-source software and messing around with
-                random technical projects.
-            </p>
-
-            <div class="formula">
-
-                H<sub>2</sub>O + CO<sub>2</sub>
-                →
-                H<sub>2</sub>CO<sub>3</sub>
-
-                <br>
-
-                "Everything is chemistry eventually."
-
-            </div>
-
-        </div>
-
-
-        <div class="card">
-
-            <h3>System Information</h3>
-
-            <table class="info-table">
-
-                <tr>
-                    <td>Operating System</td>
-                    <td>GNU/Linux</td>
-                </tr>
-
-                <tr>
-                    <td>Interests</td>
-                    <td>Linux / Chemistry / Programming</td>
-                </tr>
-
-                <tr>
-                    <td>Website</td>
-                    <td>YesManDrJr</td>
-                </tr>
-
-                <tr>
-                    <td>Status</td>
-                    <td>Working on something...</td>
-                </tr>
-
-            </table>
-
-        </div>
-
+  <main>
+    <section id="about" class="panel active">
+      <h2>~/about</h2>
+      <div class="card">
+        <p>Welcome to my little corner of the internet.</p><br>
+        <p>I like Linux, programming, chemistry, open-source software and messing around with random technical projects.</p>
+        <div class="formula">H<sub>2</sub>O + CO<sub>2</sub> → H<sub>2</sub>CO<sub>3</sub><br>"Everything is chemistry eventually."</div>
+      </div>
+      <div class="card">
+        <h3>System Information</h3>
+        <table class="info-table">
+          <tr><td>Operating System</td><td>GNU/Linux</td></tr>
+          <tr><td>Interests</td><td>Linux / Chemistry / Programming</td></tr>
+          <tr><td>Website</td><td>YesManDrJr</td></tr>
+          <tr><td>Status</td><td>Working on something...</td></tr>
+        </table>
+      </div>
     </section>
 
-
-    <!-- =====================
-         PROJECTS
-    ====================== -->
-
-    <section
-        id="projects"
-        class="panel">
-
-        <h2>~/projects</h2>
-
-        <div class="cards">
-
-
-            <div class="card">
-
-                <h3>Chemistry-stuff</h3>
-
-                <p>
-                    Chemistry notes, exercises and examples
-                    for school.
-                </p>
-
-                <br>
-
-                <a
-                    href="https://github.com/YesManDrJr/Chemistry-stuff"
-                    target="_blank">
-
-                    View repository →
-
-                </a>
-
-            </div>
-
-
-            <div class="card">
-
-                <h3>Linux</h3>
-
-                <p>
-                    Ubuntu customization, terminal tools,
-                    scripting and Linux experimentation.
-                </p>
-
-                <br>
-
-                <div class="formula">
-
-                    OS = GNU/Linux
-                    <br>
-                    SHELL = fish
-
-                </div>
-
-            </div>
-
-
-            <div class="card">
-
-                <h3>Programming</h3>
-
-                <p>
-                    Python, JavaScript, Git and various
-                    experimental projects.
-                </p>
-
-                <br>
-
-                <div class="formula">
-
-                    CODE + CURIOSITY → PROJECT
-
-                </div>
-
-            </div>
-
-
-        </div>
-
+    <section id="projects" class="panel">
+      <h2>~/projects</h2>
+      <div class="cards">
+        <div class="card"><h3>Chemistry-stuff</h3><p>Chemistry notes, exercises and examples for school.</p><br><a href="https://github.com/YesManDrJr/Chemistry-stuff" target="_blank" rel="noopener noreferrer">View repository →</a></div>
+        <div class="card"><h3>Linux</h3><p>Ubuntu customization, terminal tools, scripting and Linux experimentation.</p><div class="formula">OS = GNU/Linux<br>SHELL = fish</div></div>
+        <div class="card"><h3>Programming</h3><p>Python, JavaScript, Git and various experimental projects.</p><div class="formula">CODE + CURIOSITY → PROJECT</div></div>
+      </div>
     </section>
 
-
-    <!-- =====================
-         GITHUB
-    ====================== -->
-
-    <section
-        id="github"
-        class="panel">
-
-        <h2>~/github</h2>
-
-
-        <div class="card">
-
-            <h3>GitHub Profile</h3>
-
-            <p>
-                Check out my GitHub profile:
-            </p>
-
-            <br>
-
-            <a
-                href="https://github.com/YesManDrJr"
-                target="_blank">
-
-                github.com/YesManDrJr →
-
-            </a>
-
-        </div>
-
-
-        <div class="badge">
-
-            <p>
-                GITHUB COMMITS
-            </p>
-
-            <br>
-
-            <a
-                href="https://ghcommits.com/u/YesManDrJr"
-                target="_blank">
-
-                <img
-                    src="https://ghcommits.com/api/badge/YesManDrJr.svg"
-                    alt="GitHub Commits Badge">
-
-            </a>
-
-        </div>
-
-
+    <section id="github" class="panel">
+      <h2>~/github</h2>
+      <div class="card"><h3>GitHub Profile</h3><p>Check out my GitHub profile:</p><br><a href="https://github.com/YesManDrJr" target="_blank" rel="noopener noreferrer">github.com/YesManDrJr →</a></div>
+      <div class="badge"><p>GITHUB COMMITS</p><br><a href="https://ghcommits.com/u/YesManDrJr" target="_blank" rel="noopener noreferrer"><img src="https://ghcommits.com/api/badge/YesManDrJr.svg" alt="GitHub Commits Badge"></a></div>
     </section>
 
-</main>
+    <section id="mining" class="panel">
+      <h2>~/mining</h2>
+      <div class="cards">
+        <div class="card"><h3>Monero / XMR</h3><p>Mining pool account statistics from HashVault.</p><div class="formula">POOL = HASHVAULT<br>ALGORITHM = RandomX<br>COIN = XMR</div><br><a href="https://hashvault.pro/" target="_blank" rel="noopener noreferrer">Open HashVault →</a></div>
+        <div class="card"><h3>Reported Hashrate</h3><div class="formula metric" id="mining-hashrate">Loading…</div><p class="subtle">Hashrate value reported by the API.</p></div>
+        <div class="card"><h3>Workers</h3><div class="formula metric" id="mining-workers">Loading…</div><p class="subtle">Worker count/status, if included in the response.</p></div>
+        <div class="card"><h3>Accepted Shares</h3><div class="formula metric" id="mining-shares">Loading…</div><p class="subtle">Share count, if included in the response.</p></div>
+        <div class="card"><h3>Balance</h3><div class="formula metric" id="mining-balance">Loading…</div><p class="subtle">Displayed as returned; units depend on the API field.</p></div>
+        <div class="card"><h3>API Connection</h3><div class="badge" id="mining-status" role="status">CONNECTING</div><p class="subtle" id="mining-updated">Waiting for API response…</p><button class="button" id="mining-refresh" type="button">Refresh statistics</button></div>
+      </div>
+      <details><summary>Debug: raw API response</summary><pre id="mining-raw">No response received yet.</pre></details>
+    </section>
+  </main>
 
-
-<!-- =========================
-     FOOTER
-========================== -->
-
-<footer>
-
-    <p>
-        © 2026 YesManDrJr
-        &nbsp; | &nbsp;
-        Personal homepage
-        &nbsp; | &nbsp;
-        Built with HTML & CSS
-    </p>
-
-</footer>
-```
-
+  <footer><p>© 2026 YesManDrJr &nbsp; | &nbsp; Personal homepage &nbsp; | &nbsp; Built with HTML &amp; CSS</p></footer>
 </div>
 
-<!-- =========================
-     PAGE SWITCHING
-========================== -->
-
 <script>
+  // Navigation: connect every menu button to its matching panel.
+  function showPanel(panelId, button) {
+    document.querySelectorAll('.panel').forEach(panel => panel.classList.remove('active'));
+    document.querySelectorAll('.nav-button').forEach(btn => btn.classList.remove('active'));
+    const panel = document.getElementById(panelId);
+    if (panel) panel.classList.add('active');
+    if (button) button.classList.add('active');
+  }
+  document.querySelectorAll('.nav-button').forEach(button => {
+    button.addEventListener('click', () => showPanel(button.dataset.panel, button));
+  });
 
-    function showPanel(panelId, button) {
+  // HashVault endpoint. The wallet address is public in client-side code.
+  const HASHVAULT_API_URL = 'https://api.hashvault.pro/v3/monero/wallet/42xNUZunpod2oBgq2m5LFL1PVqp7NcmmdYfXhJC7mXa8bfdLxwhHoBUddLW2TfgT8X2q2Z9gDis84YcKgSEdeifoJpQfKgL/stats?poolType=false&workers=true&chart=false';
+  const REFRESH_MS = 30000;
+  const $ = id => document.getElementById(id);
 
-        /*
-         * Hide every panel
-         */
+  function setText(id, value) { const el = $(id); if (el) el.textContent = value; }
+  function normalizeKey(key) { return String(key).toLowerCase().replace(/[^a-z0-9]/g, ''); }
 
-        const panels = document.querySelectorAll(".panel");
-
-        panels.forEach(panel => {
-            panel.classList.remove("active");
-        });
-
-
-        /*
-         * Remove active state
-         * from every navigation button
-         */
-
-        const buttons =
-            document.querySelectorAll(".nav-button");
-
-        buttons.forEach(btn => {
-            btn.classList.remove("active");
-        });
-
-
-        /*
-         * Show selected panel
-         */
-
-        document
-            .getElementById(panelId)
-            .classList.add("active");
-
-
-        /*
-         * Highlight selected button
-         */
-
-        button.classList.add("active");
-
+  // Searches nested objects too, since API response fields may be nested.
+  function findField(root, aliases) {
+    const wanted = new Set(aliases.map(normalizeKey));
+    const queue = [root];
+    const seen = new Set();
+    while (queue.length) {
+      const current = queue.shift();
+      if (!current || typeof current !== 'object' || seen.has(current)) continue;
+      seen.add(current);
+      for (const [key, value] of Object.entries(current)) {
+        if (wanted.has(normalizeKey(key)) && value !== null && value !== undefined && typeof value !== 'object') return { key, value };
+      }
+      for (const value of Object.values(current)) if (value && typeof value === 'object') queue.push(value);
     }
+    return null;
+  }
 
+  function formatValue(found) {
+    if (!found) return 'Not provided';
+    const value = found.value;
+    if (typeof value === 'number') return value.toLocaleString(undefined, { maximumFractionDigits: 6 });
+    if (typeof value === 'boolean') return value ? 'Yes' : 'No';
+    return String(value);
+  }
+
+  function formatHashrate(found) {
+    if (!found) return 'Not provided';
+    const raw = found.value;
+    const value = typeof raw === 'number' ? raw : Number(raw);
+    if (!Number.isFinite(value) || value < 0) return `${String(raw)} (${found.key})`;
+    const units = ['H/s', 'kH/s', 'MH/s', 'GH/s', 'TH/s'];
+    let amount = value, index = 0;
+    while (amount >= 1000 && index < units.length - 1) { amount /= 1000; index++; }
+    return `${amount.toLocaleString(undefined, { maximumFractionDigits: 2 })} ${units[index]}`;
+  }
+
+  async function refreshMiningStats() {
+    const refreshButton = $('mining-refresh');
+    if (refreshButton) refreshButton.disabled = true;
+    setText('mining-status', 'CONNECTING…');
+    setText('mining-updated', 'Requesting HashVault API…');
+
+    try {
+      const response = await fetch(HASHVAULT_API_URL, {
+        method: 'GET',
+        cache: 'no-store',
+        headers: { 'Accept': 'application/json' }
+      });
+      const bodyText = await response.text();
+      let data;
+      try { data = JSON.parse(bodyText); }
+      catch { throw new Error(`API did not return JSON (HTTP ${response.status}). Check the raw response in DevTools.`); }
+      $('mining-raw').textContent = JSON.stringify(data, null, 2);
+      if (!response.ok) throw new Error(`HTTP ${response.status}: ${bodyText.slice(0, 180)}`);
+
+      // Aliases are intentionally broad; the raw response panel shows the actual schema.
+      const hashrate = findField(data, ['hashrate', 'hashRate', 'currentHashrate', 'currentHashRate', 'totalHashrate', 'totalHashRate', 'hashrate1h', 'hashrate24h']);
+      const workers = findField(data, ['workersOnline', 'workerCount', 'activeWorkers', 'workersCount', 'workersTotal', 'totalWorkers']);
+      const shares = findField(data, ['acceptedShares', 'sharesAccepted', 'validShares', 'shares', 'accepted']);
+      const balance = findField(data, ['amtDue', 'balance', 'totalBalance', 'pendingBalance', 'paid', 'amtPaid']);
+
+      setText('mining-hashrate', formatHashrate(hashrate));
+      setText('mining-workers', formatValue(workers));
+      setText('mining-shares', formatValue(shares));
+      setText('mining-balance', formatValue(balance));
+      setText('mining-status', 'API OK');
+      setText('mining-updated', `Last updated: ${new Date().toLocaleTimeString()}`);
+    } catch (error) {
+      console.error('HashVault dashboard error:', error);
+      setText('mining-status', 'REQUEST FAILED');
+      setText('mining-updated', `${error.message}. If this is a CORS error, the API must be fetched through a small server-side proxy.`);
+      setText('mining-raw', `Request error: ${error.message}\n\nOpen browser DevTools → Console and Network for details.`);
+      setText('mining-hashrate', 'Unavailable');
+      setText('mining-workers', 'Unavailable');
+      setText('mining-shares', 'Unavailable');
+      setText('mining-balance', 'Unavailable');
+    } finally {
+      if (refreshButton) refreshButton.disabled = false;
+    }
+  }
+
+  $('mining-refresh').addEventListener('click', refreshMiningStats);
+  refreshMiningStats();
+  setInterval(refreshMiningStats, REFRESH_MS);
 </script>
-
 </body>
 </html>

@@ -190,11 +190,25 @@
       $('mining-raw').textContent = JSON.stringify(data, null, 2);
       if (!response.ok) throw new Error(`HTTP ${response.status}: ${bodyText.slice(0, 180)}`);
 
-      // Aliases are intentionally broad; the raw response panel shows the actual schema.
-      const hashrate = findField(data, ['hashrate', 'hashRate', 'currentHashrate', 'currentHashRate', 'totalHashrate', 'totalHashRate', 'hashrate1h', 'hashrate24h']);
-      const workers = findField(data, ['workersOnline', 'workerCount', 'activeWorkers', 'workersCount', 'workersTotal', 'totalWorkers']);
-      const shares = findField(data, ['acceptedShares', 'sharesAccepted', 'validShares', 'shares', 'accepted']);
-      const balance = findField(data, ['amtDue', 'balance', 'totalBalance', 'pendingBalance', 'paid', 'amtPaid']);
+// Hashrate: use the collective pool statistics
+const hashrate = findField(data, [
+    'hashrate', 'hashRate', 'currentHashrate', 'currentHashRate',
+    'totalHashrate', 'totalHashRate', 'hashrate1h', 'hashrate24h'
+]);
+
+// Workers: HashVault returns an array of worker objects
+const workers = Array.isArray(data.collectiveWorkers)
+    ? data.collectiveWorkers
+    : [];
+
+// Accepted shares: use collective pool statistics
+const shares = findField(data.collective, [
+    'acceptedShares', 'sharesAccepted', 'validShares', 'shares', 'accepted'
+]);
+
+// Balance: confirmed balance is reported in atomic XMR units
+const balance = data.revenue?.confirmedBalance;
+const balanceXMR = balance != null ? balance / 1e12 : null;
 
       setText('mining-hashrate', formatHashrate(hashrate));
       setText('mining-workers', formatValue(workers));

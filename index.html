@@ -227,7 +227,7 @@
 
 <script>
 
-// Navigation: connect every menu button to its matching panel.*
+// Navigation button click handler to show the corresponding panel.*
 
   function showPanel(panelId, button) {
 
@@ -267,7 +267,7 @@ button.addEventListener('click', () => showPanel(button.dataset.panel, button));
 
 
 
-// Searches nested objects too, since API response fields may be nested.*
+// Search for a field in a nested object structure, using a list of possible aliases.*
 
   function findField(root, aliases) {
 
@@ -407,7 +407,7 @@ const balanceXMR = balance != null ? balance / 1e12 : null;
 
 
 
-// Update the HTML cards
+// Update the dashboard elements with the fetched data.*
     setText('mining-hashrate', formatHashrate(hashrate));
     setText('mining-workers', workers.length
       ? `${workers.length} (${workers.filter(w => !w.offline).length} online)`

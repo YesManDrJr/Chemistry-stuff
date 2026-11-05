@@ -16,3 +16,7 @@
 ## Alkane
 - https://studyflix.de/chemie/alkane-einfach-erklart-4124
 - https://de.wikipedia.org/wiki/Alkane
+
+## Phasendiagramme
+- https://de.wikipedia.org/wiki/Phasendiagramm
+- https://www.studysmarter.de/schule/chemie/physikalische-chemie/phasendiagramm/

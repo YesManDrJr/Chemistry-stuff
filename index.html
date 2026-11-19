@@ -1,434 +1,1018 @@
 <!DOCTYPE html>
 
+
+
 <html lang="en">
+
+
 
 <head>
 
+
+
   <meta charset="UTF-8">
+
+
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+
+
   <title>About me, idk why</title>
 
+
+
 <style>
+
 * {
+
     box-sizing: border-box;
+
     margin: 0;
+
     padding: 0;
+
 }
+
+
 
 body {
+
     background: #101112;
+
     color: #E8E6E2;
+
     font-family: "Courier New", Courier, monospace;
+
     line-height: 1.6;
+
 }
+
+
 
 .page {
+
     max-width: 1050px;
+
     min-height: 650px;
+
     margin: 30px auto;
+
     background: #17191B;
+
     border: 1px solid #34393D;
+
     box-shadow: 4px 4px 0 #0b0c0d, 8px 8px 0 #080909;
+
 }
+
+
 
 header {
+
     padding: 40px 30px 30px;
+
     background: #1E2124;
+
     border-bottom: 3px double #FF6600;
+
 }
+
+
 
 header h1 {
+
     color: #FF6600;
+
     font-family: Georgia, "Times New Roman", serif;
+
     font-size: 2.8rem;
+
     letter-spacing: 1px;
+
     margin-bottom: 5px;
+
 }
+
+
 
 header h1::before {
+
     content: "XMR + CHEM // ";
+
     color: #FF8533;
+
     font-family: "Courier New", monospace;
+
     font-size: .8rem;
+
     letter-spacing: 0;
+
 }
+
+
 
 header p {
+
     color: #A5A6A3;
+
     font-size: .95rem;
+
 }
+
+
 
 .system-status {
+
     margin-top: 18px;
+
     padding: 8px 12px;
+
     background: #25292C;
+
     border: 1px solid #41474B;
+
     color: #FF8533;
+
     font-size: .75rem;
+
 }
+
+
 
 nav {
+
     display: flex;
+
     flex-wrap: wrap;
+
     background: #25292C;
+
     border-bottom: 1px solid #34393D;
+
 }
+
+
 
 nav button {
+
     appearance: none;
+
     padding: 10px 22px;
+
     background: #25292C;
+
     color: #C5C3BE;
+
     border: none;
+
     border-right: 1px solid #41474B;
+
     font: bold .9rem "Courier New", monospace;
+
     cursor: pointer;
+
 }
+
+
 
 nav button:hover {
+
     background: #34393D;
+
     color: #FF8533;
+
 }
+
+
 
 nav button.active {
+
     background: #17191B;
+
     color: #FF6600;
+
     box-shadow: inset 0 3px 0 #FF6600;
+
 }
+
+
 
 main {
+
     padding: 35px;
+
 }
+
+
 
 .panel {
+
     display: none;
+
     animation: fadeIn .15s ease-in;
+
 }
+
+
 
 .panel.active {
+
     display: block;
+
 }
+
+
 
 @keyframes fadeIn {
+
     from { opacity: 0; }
+
     to { opacity: 1; }
+
 }
+
+
 
 section h2 {
+
     display: inline-block;
+
     color: #FF8533;
+
     font-family: Georgia, "Times New Roman", serif;
+
     font-size: 1.45rem;
+
     margin-bottom: 18px;
+
     padding-bottom: 4px;
+
     border-bottom: 2px solid #FF6600;
+
 }
+
+
 
 section h2::before {
+
     content: "■ ";
+
     color: #FF6600;
+
     font-family: Arial, sans-serif;
+
 }
+
+
 
 .card {
+
     background: #202427;
+
     border: 1px solid #41474B;
+
     border-radius: 2px;
+
     padding: 22px;
+
     box-shadow: 2px 2px 0 #101112;
+
     margin-bottom: 18px;
+
     min-width: 0;
+
 }
+
+
 
 .card:hover {
+
     background: #252A2D;
+
     border-color: #FF6600;
+
     box-shadow: 3px 3px 0 #101112;
+
 }
+
+
 
 .card h3 {
+
     color: #FF8533;
+
     font-family: Georgia, "Times New Roman", serif;
+
     font-size: 1.15rem;
+
     margin-bottom: 10px;
+
 }
+
+
 
 .card h3::before {
+
     content: "[+] ";
+
     color: #FF6600;
+
     font: .9rem "Courier New", monospace;
+
 }
+
+
 
 .card p {
+
     color: #B9B7B2;
+
     overflow-wrap: anywhere;
+
 }
+
+
 
 .cards {
+
     display: grid;
+
     grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+
     gap: 18px;
+
 }
+
+
 
 a {
+
     color: #FF8533;
+
 }
+
+
 
 a:hover {
+
     color: #FF6600;
+
 }
+
+
 
 .formula {
+
     margin-top: 18px;
+
     padding: 10px 12px;
+
     background: #25292C;
+
     border-left: 4px solid #FF6600;
+
     color: #D0CEC8;
+
     font-size: .85rem;
+
     overflow-wrap: anywhere;
+
 }
+
+
 
 .badge {
+
     margin-top: 15px;
+
     padding: 12px;
+
     background: #292D30;
+
     border: 1px solid #484E52;
+
     color: #FF8533;
+
     text-align: center;
+
     font-weight: bold;
+
     overflow-wrap: anywhere;
+
 }
+
+
 
 .metric {
+
     font-size: 1.35rem;
+
     font-weight: bold;
+
     color: #FF6600;
+
 }
+
+
 
 .subtle {
+
     margin-top: 8px;
+
     font-size: .78rem;
+
     color: #85898B;
+
 }
+
+
 
 .button {
+
     margin-top: 12px;
+
     padding: 9px 12px;
+
     border: 1px solid #FF6600;
+
     background: #292D30;
+
     color: #FF8533;
+
     font: bold .85rem "Courier New", monospace;
+
     cursor: pointer;
+
 }
+
+
 
 .button:hover {
+
     background: #FF6600;
+
     color: #FFFFFF;
+
 }
+
+
 
 .error {
+
     color: #D16F67;
+
 }
+
+
 
 details {
+
     margin-top: 16px;
+
     border: 1px solid #41474B;
+
     padding: 10px;
+
     background: #202427;
+
 }
 
+
+
 summary {
+
     cursor: pointer;
+
     color: #FF8533;
+
     font-weight: bold;
+
+}
+
+
+
+.card ul {
+    margin: 10px 0 0 22px;
+    color: #B9B7B2;
+}
+
+.card li {
+    margin: 6px 0;
+    padding-left: 4px;
 }
 
 pre {
+
     margin-top: 10px;
+
     white-space: pre-wrap;
+
     overflow-wrap: anywhere;
+
     max-height: 360px;
+
     overflow: auto;
+
     font-size: .75rem;
+
     color: #D0CEC8;
+
 }
+
+
 
 .info-table {
+
     width: 100%;
+
     border-collapse: collapse;
+
     margin-top: 15px;
+
 }
+
+
 
 .info-table td {
+
     padding: 7px 10px;
+
     border: 1px solid #41474B;
+
 }
+
+
 
 .info-table td:first-child {
+
     width: 35%;
+
     background: #292D30;
+
     color: #FF8533;
+
     font-weight: bold;
+
 }
+
+
 
 .info-table td:last-child {
+
     background: #202427;
+
     color: #D0CEC8;
+
 }
+
+
 
 footer {
+
     padding: 22px 30px;
+
     background: #1E2124;
+
     border-top: 3px double #FF6600;
+
     color: #85898B;
+
     font-size: .8rem;
+
 }
+
+
 
 @media (max-width: 600px) {
+
     .page {
+
         margin: 0;
+
         border-left: 0;
+
         border-right: 0;
+
         box-shadow: none;
+
     }
+
+
 
     header {
+
         padding: 30px 20px;
+
     }
+
+
 
     header h1 {
+
         font-size: 2.1rem;
+
     }
+
+
 
     nav button {
+
         flex: 1 1 33%;
+
         padding: 9px;
+
     }
 
+
+
     main {
+
         padding: 25px 20px;
+
     }
+
 }
+
 </style>
+
+
 
 </head>
 
+
+
 <body>
+
+
 
 <div class="page">
 
+
+
   <header>
+
+
 
     <h1>YesManDrJr</h1>
 
+
+
     <p>Linux • Chemistry • Programming</p>
 
-    <div class="system-status">SYSTEM STATUS: ONLINE &nbsp; | &nbsp; PLATFORM: GNU/Linux &nbsp; | &nbsp; SUBJECT: CHEMISTRY</div>
+
+
+    <div class="system-status">SYSTEM STATUS: ONLINE   |   PLATFORM: GNU/Linux   |   SUBJECT: CHEMISTRY</div>
+
+
 
   </header>
 
 
 
+
+
+
+
   <nav aria-label="Main navigation">
+
+
 
     <button class="nav-button active" type="button" data-panel="about">About</button>
 
+
+
     <button class="nav-button" type="button" data-panel="projects">Projects</button>
+
+
 
     <button class="nav-button" type="button" data-panel="github">GitHub</button>
 
+
+
     <button class="nav-button" type="button" data-panel="mining">Mining</button>
+    <button class="nav-button" type="button" data-panel="more-about">More about me</button>
+    <button class="nav-button" type="button" data-panel="privacy">Operation: Privacy</button>
+
+
 
   </nav>
 
 
 
+
+
+
+
   <main>
+
+
 
     <section id="about" class="panel active">
 
+
+
       <h2>~/about</h2>
 
+
+
       <div class="card">
+
+
 
         <p>Welcome to my little corner of the internet. Uh... yes.</p><br>
 
+
+
         <p>I like Linux, programming, chemistry, open-source software and messing around with random technical projects.</p>
+
+
 
         <div class="formula">H<sub>2</sub>O + CO<sub>2</sub> → H<sub>2</sub>CO<sub>3</sub><br>"Everything is chemistry eventually."</div>
 
+
+
       </div>
+
+
 
       <div class="card">
 
+
+
         <h3>System Information</h3>
+
+
 
         <table class="info-table">
 
+
+
           <tr><td>Operating System</td><td>GNU/Linux</td></tr>
+
+
 
           <tr><td>Interests</td><td>Linux / Chemistry / Programming / Crypto Mining</td></tr>
 
+
+
           <tr><td>Website</td><td>YesManDrJr</td></tr>
+
+
 
           <tr><td>Status</td><td>Working on something...</td></tr>
 
+
+
         </table>
+
+
 
       </div>
 
+
+
     </section>
+
+
+
+
 
 
 
     <section id="projects" class="panel">
 
+
+
       <h2>~/projects</h2>
+
+
 
       <div class="cards">
 
+
+
         <div class="card"><h3>Chemistry-stuff</h3><p>Chemistry notes, exercises and examples for school.</p><br><a href="https://github.com/YesManDrJr/Chemistry-stuff" target="_blank" rel="noopener noreferrer">View repository →</a></div>
+
+
 
         <div class="card"><h3>Linux</h3><p>Ubuntu customization, terminal tools, scripting and Linux experimentation.</p><div class="formula">OS = GNU/Linux<br>SHELL = fish</div></div>
 
+
+
         <div class="card"><h3>Programming</h3><p>Python, JavaScript, Git and various experimental projects.</p><div class="formula">CODE + CURIOSITY → PROJECT</div></div>
+
+
 
       </div>
 
+
+
     </section>
+
+
+
+
 
 
 
     <section id="github" class="panel">
 
+
+
       <h2>~/github</h2>
+
+
 
       <div class="card"><h3>GitHub Profile</h3><p>Check out my GitHub profile:</p><br><a href="https://github.com/YesManDrJr" target="_blank" rel="noopener noreferrer">github.com/YesManDrJr →</a></div>
 
+
+
       <div class="badge"><p>GITHUB COMMITS</p><br><a href="https://ghcommits.com/u/YesManDrJr" target="_blank" rel="noopener noreferrer"><img src="https://ghcommits.com/api/badge/YesManDrJr.svg" alt="GitHub Commits Badge"></a></div>
+
+
 
     </section>
 
 
 
+
+
+
+
     <section id="mining" class="panel">
+
+
 
       <h2>~/mining</h2>
 
+
+
       <div class="cards">
+
         <div class="card"><h3>Current hashrate</h3><p id="mining-hashrate" class="metric">Loading…</p><p class="subtle">Reported by HashVault</p></div>
+
         <div class="card"><h3>Workers</h3><p id="mining-workers" class="metric">Loading…</p><p class="subtle">Workers currently reported by the pool</p></div>
+
         <div class="card"><h3>Valid shares</h3><p id="mining-shares" class="metric">Loading…</p><p class="subtle">Accepted shares reported by the API</p></div>
+
         <div class="card"><h3>Confirmed balance</h3><p id="mining-balance" class="metric">Loading…</p><p class="subtle">Confirmed XMR balance</p></div>
+
       </div>
+
       <div class="card">
+
         <h3>Pool connection</h3>
+
         <p id="mining-status" class="metric">WAITING…</p>
+
         <p id="mining-updated" class="subtle">Dashboard has not refreshed yet.</p>
+
         <button class="button" id="mining-refresh" type="button">Refresh stats</button>
+
         <details><summary>Raw API response / diagnostics</summary><pre id="mining-raw">Waiting for first response…</pre></details>
+
+      </div>
+
+    </section>
+
+
+
+
+    <!--
+      EDITING GUIDE:
+      Each card is an independent section. Change its heading and paragraph text
+      directly. You can duplicate a <div class="card">...</div> to add another card.
+      Keep each panel's id unique and keep its matching data-panel value in the nav.
+    -->
+    <section id="more-about" class="panel">
+      <h2>~/more-about-me</h2>
+
+      <div class="card">
+        <h3>A little more about me</h3>
+        <p>
+          I'm an independent learner interested in understanding how things work,
+          experimenting with technology, and turning ideas into practical projects.
+          I enjoy exploring different fields rather than limiting myself to just one.
+        </p>
+        <!-- EDIT: Add a short personal introduction here. -->
+      </div>
+
+      <div class="cards">
+        <div class="card">
+          <h3>Technology & Linux</h3>
+          <p>
+            I enjoy GNU/Linux, open-source software, terminal tools, system
+            customization, and learning how computers work behind the scenes.
+          </p>
+          <!-- EDIT: Add your favourite tools, distributions, or technical interests. -->
+        </div>
+
+        <div class="card">
+          <h3>Chemistry & science</h3>
+          <p>
+            Chemistry is one of my main academic interests. I like understanding
+            reactions, analytical methods, and the principles behind everyday materials.
+          </p>
+          <!-- EDIT: Add topics, experiments, or subjects you find interesting. -->
+        </div>
+
+        <div class="card">
+          <h3>Programming & projects</h3>
+          <p>
+            Coding, Coding and uh... More coding? yes.
+            Wtf am I even typing
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>How I work</h3>
+          <p>
+            I value curiosity, documentation, learning through experimentation,
+            and improving things step by step. Not every project needs to be perfect
+            from the beginning. Honestly its fine already if you like it yourself the way it turned out
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Hobbies and Likes</h3>
+          <li>Mountaineering</li>
+          <li>Trekking (Alot)</li>
+          <li>Coding on my Linux out of Boredom</li>
+          <li>Chemistry (I thought that was obvious-)</li>
+        </div>
+      </div>
+
+      <div class="formula">
+        CURRENT PRINCIPLE: Stay curious. Keep learning. Build, test, improve. And always learn from mistakes lol
+      </div>
+    </section>
+
+    <section id="privacy" class="panel">
+      <h2>~/operation-privacy</h2>
+
+      <div class="card">
+        <h3>Operation: Privacy</h3>
+        <p>
+          A personal initiative focused on digital privacy, information safety,
+          and helping people think more critically about how their data is collected,
+          used, stored, and shared.
+        </p>
+        <!-- EDIT: Replace or expand this introduction with your own project summary. -->
+      </div>
+
+      <div class="card">
+        <h3>Our plan</h3>
+        <ul>
+          <li>Raise awareness about the lack of digital privacy and general information safety.</li>
+          <li>Encourage people to question whether mass surveillance actually makes them safer.</li>
+          <li>Promote the idea that personal data should remain under the control of the people it belongs to, rather than being treated as a commodity.</li>
+          <li>Help people become more aware of their digital footprint and the services they rely on.</li>
+          <li>Your history is not the profit of another company, Your transactions are not entertainment for surveillance.</li>
+        </ul>
+        <!-- EDIT: Add, remove, or reorder the goals as the project develops. -->
+      </div>
+
+      <div class="cards">
+        <div class="card">
+          <h3>Why it matters</h3>
+          <p>
+            Everyday digital activities create information about our habits,
+            interests, relationships, and behaviour. Understanding what happens
+            to that information is an important part of using technology responsibly.
+          </p>
+          <li>They say mass surveillance is safety, but in reality its just another nice word sold as a indirect lie.</li>
+          <li>They think it makes the internet safer, while they spy on even the innocent ones.</li>
+          <!-- EDIT: Add your own explanation of the problem. -->
+        </div>
+
+        <div class="card">
+          <h3>Core principles</h3>
+          <ul>
+            <li>Privacy is a right, not a privilege. But they sell privacy as danger and insecurity.</li>
+            <li>People should be able to make informed choices about their data.</li>
+            <li>Transparency and accountability matter.</li>
+            <li>Security should protect people, not become an excuse for unnecessary data collection.</li>
+            <li>They may play us by collecting massive unecessary data for their own profit, but the more people are aware, the harder it will get for them.</li>
+          </ul>
+          <!-- EDIT: Add the principles that define Operation: Privacy. -->
+        </div>
+
+        <div class="card">
+          <h3>What people can do</h3>
+          <p>
+            Learn about privacy settings, review app permissions, use strong and
+            unique passwords, keep software updated, and think carefully before
+            sharing personal information online.
+          </p>
+          <!-- EDIT: Add practical recommendations or useful resources. -->
+           <li>We tend to call out people to join the monero or tari network for more safety and privacy in each transaction</li>
+           <li>NOTE: Each of these 2 crypto currencies has their own privacy mechanics and features. Please inform yourself before participating if you want to know how these projects contribute into privacy.</li>
+        </div>
+      </div>
+
+      <div class="badge">
+        <p>PRIVACY IS A RIGHT. NOT A PRIVILEGE.</p>
       </div>
     </section>
 
@@ -436,244 +1020,488 @@ footer {
 
 
 
-  <footer><p>© 2026 YesManDrJr &nbsp; | &nbsp; Personal homepage &nbsp; | &nbsp; Built with HTML &amp; CSS</p></footer>
+
+
+
+
+  <footer><p>© 2026 YesManDrJr   |   Personal homepage   |   Built with HTML & CSS</p></footer>
+
+
 
 </div>
 
 
 
+
+
+
+
 <script>
 
-// Navigation button click handler to show the corresponding panel.*
+
+
+// Navigation button click handler to show the corresponding panel.**
+
+
 
   function showPanel(panelId, button) {
 
+
+
     document.querySelectorAll('.panel').forEach(panel => panel.classList.remove('active'));
+
+
 
     document.querySelectorAll('.nav-button').forEach(btn => btn.classList.remove('active'));
 
+
+
     const panel = document.getElementById(panelId);
+
+
 
     if (panel) panel.classList.add('active');
 
+
+
     if (button) button.classList.add('active');
+
+
 
   }
 
+
+
   document.querySelectorAll('.nav-button').forEach(button => {
 
+
+
 button.addEventListener('click', () => showPanel(button.dataset.panel, button));
+
+
 
   });
 
 
 
-// HashVault endpoint. The wallet address is public in client-side code.*
+
+
+
+
+// HashVault endpoint. The wallet address is public in client-side code.**
+
+
 
   const HASHVAULT_API_URL = 'https://api.hashvault.pro/v3/monero/wallet/42xNUZunpod2oBgq2m5LFL1PVqp7NcmmdYfXhJC7mXa8bfdLxwhHoBUddLW2TfgT8X2q2Z9gDis84YcKgSEdeifoJpQfKgL/stats?poolType=false&workers=true&chart=false';
 
+
+
   const REFRESH_MS = 30000;
+
+
 
   const $ = id => document.getElementById(id);
 
 
 
+
+
+
+
   function setText(id, value) { const el = $(id); if (el) el.textContent = value; }
+
+
 
   function normalizeKey(key) { return String(key).toLowerCase().replace(/[^a-z0-9]/g, ''); }
 
 
 
-// Search for a field in a nested object structure, using a list of possible aliases.*
+
+
+
+
+// Search for a field in a nested object structure, using a list of possible aliases.**
+
+
 
   function findField(root, aliases) {
 
+
+
     const wanted = new Set(aliases.map(normalizeKey));
+
+
 
     const queue = [root];
 
+
+
     const seen = new Set();
+
+
 
     while (queue.length) {
 
+
+
       const current = queue.shift();
+
+
 
       if (!current || typeof current !== 'object' || seen.has(current)) continue;
 
+
+
       seen.add(current);
+
+
 
       for (const [key, value] of Object.entries(current)) {
 
+
+
         if (wanted.has(normalizeKey(key)) && value !== null && value !== undefined && typeof value !== 'object') return { key, value };
+
+
 
       }
 
+
+
       for (const value of Object.values(current)) if (value && typeof value === 'object') queue.push(value);
+
+
 
     }
 
+
+
     return null;
 
+
+
   }
+
+
+
+
 
 
 
   function formatValue(found) {
 
+
+
     if (!found) return 'Not provided';
+
+
 
     const value = found.value;
 
+
+
     if (typeof value === 'number') return value.toLocaleString(undefined, { maximumFractionDigits: 6 });
+
+
 
     if (typeof value === 'boolean') return value ? 'Yes' : 'No';
 
+
+
     return String(value);
 
+
+
   }
+
+
+
+
 
 
 
   function formatHashrate(found) {
 
+
+
     if (!found) return 'Not provided';
+
+
 
     const raw = found.value;
 
+
+
     const value = typeof raw === 'number' ? raw : Number(raw);
+
+
 
     if (!Number.isFinite(value) || value < 0) return `${String(raw)} (${found.key})`;
 
+
+
     const units = ['H/s', 'kH/s', 'MH/s', 'GH/s', 'TH/s'];
+
+
 
     let amount = value, index = 0;
 
+
+
     while (amount >= 1000 && index < units.length - 1) { amount /= 1000; index++; }
+
+
 
     return `${amount.toLocaleString(undefined, { maximumFractionDigits: 2 })} ${units[index]}`;
 
+
+
   }
+
+
+
+
 
 
 
   async function refreshMiningStats() {
 
+
+
     const refreshButton = $('mining-refresh');
+
+
 
     if (refreshButton) refreshButton.disabled = true;
 
+
+
 setText('mining-status', 'CONNECTING…');
+
+
 
 setText('mining-updated', 'Requesting HashVault API…');
 
 
 
+
+
+
+
     try {
+
+
 
       const response = await fetch(HASHVAULT_API_URL, {
 
+
+
         method: 'GET',
+
+
 
         cache: 'no-store',
 
+
+
         headers: { 'Accept': 'application/json' }
+
+
 
       });
 
+
+
       const bodyText = await response.text();
+
+
 
       let data;
 
+
+
       try { data = JSON.parse(bodyText); }
+
+
 
       catch { throw new Error(`API did not return JSON (HTTP ${response.status}). Check the raw response in DevTools.`); }
 
+
+
 $('mining-raw').textContent = JSON.stringify(data, null, 2);
+
+
 
       if (!response.ok) throw new Error(`HTTP ${response.status}: ${bodyText.slice(0, 180)}`);
 
 
 
+
+
+
+
 const hashrate = findField(data.collective, [
+
+
 
     'hashRate', 'hashrate', 'currentHashRate'
 
+
+
 ]);
+
+
+
+
 
 
 
 const workers = Array.isArray(data.collectiveWorkers)
 
+
+
     ? data.collectiveWorkers
+
+
 
     : [];
 
 
 
+
+
+
+
 const shares = findField(data.collective, [
 
+
+
     'validShares', 'acceptedShares', 'sharesAccepted'
+
+
 
 ]);
 
 
 
+
+
+
+
 const balance = data.revenue?.confirmedBalance;
+
+
 
 const balanceXMR = balance != null ? balance / 1e12 : null;
 
 
 
-// Update the dashboard elements with the fetched data.*
-    setText('mining-hashrate', formatHashrate(hashrate));
-    setText('mining-workers', workers.length
+
+
+
+
+// Update the dashboard elements with the fetched data.**
+
+setText('mining-hashrate', formatHashrate(hashrate));
+
+setText('mining-workers', workers.length
+
       ? `${workers.length} (${workers.filter(w => !w.offline).length} online)`
+
       : '0');
-    setText('mining-shares', formatValue(shares));
-    setText('mining-balance', balanceXMR != null
+
+setText('mining-shares', formatValue(shares));
+
+setText('mining-balance', balanceXMR != null
+
       ? `${balanceXMR.toFixed(12)} XMR`
+
       : 'Not provided');
 
-    setText('mining-status', 'API OK');
+
+
+setText('mining-status', 'API OK');
+
+
 
 setText('mining-updated', `Last updated: ${new Date().toLocaleTimeString()}`);
 
+
+
     } catch (error) {
+
+
 
       console.error('HashVault dashboard error:', error);
 
+
+
 setText('mining-status', 'REQUEST FAILED');
+
+
 
 setText('mining-updated', `${error.message}. If this is a CORS error, the API must be fetched through a small server-side proxy.`);
 
+
+
 setText('mining-raw', `Request error: ${error.message}\n\nOpen browser DevTools → Console and Network for details.`);
+
+
 
 setText('mining-hashrate', 'Unavailable');
 
+
+
 setText('mining-workers', 'Unavailable');
+
+
 
 setText('mining-shares', 'Unavailable');
 
+
+
 setText('mining-balance', 'Unavailable');
+
+
 
     } finally {
 
+
+
       if (refreshButton) refreshButton.disabled = false;
 
+
+
     }
+
+
 
   }
 
 
 
+
+
+
+
 $('mining-refresh').addEventListener('click', refreshMiningStats);
+
+
 
 refreshMiningStats();
 
+
+
 setInterval(refreshMiningStats, REFRESH_MS);
+
+
 
 </script>
 
+
+
 </body>
+
+
 
 </html>
